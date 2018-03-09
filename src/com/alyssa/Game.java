@@ -1,4 +1,5 @@
 package com.alyssa;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -20,11 +21,7 @@ public class Game extends JFrame implements ActionListener {
     public void init() {
         inGame = false;
 
-<<<<<<< HEAD
-        window = new JFrame("REVENGERS QUIZ");
-=======
         window = new JFrame("|||||||||||||||||||REVENGERS REUNITE|||||||||||||||||||");
->>>>>>> a327d01e0a0b29096723f5fe8d46ee7194bcb1e6
 
         mnuMain = new JMenuBar();
         mnuRestart = new JMenuItem("  TRY AGAIN");
@@ -37,6 +34,22 @@ public class Game extends JFrame implements ActionListener {
         window.setResizable(true);
         window.setLayout(new BorderLayout());
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        mnuMain.add(mnuGameTitle);
+        mnuGameTitle.setEnabled(false);
+        mnuGameTitle.setFont(fontMenu);
+        mnuMain.add(mnuRestart);
+        mnuRestart.setFont(fontMenu);
+        mnuMain.add(mnuRestart);
+        mnuRestart.setFont(fontMenu);
+        mnuMain.add(mnuExit);
+        mnuExit.setFont(fontMenu);
+
+        // adding Action Listener to all the Buttons and Menu Items
+        mnuRestart.addActionListener(this);
+        mnuExit.addActionListener(this);
+        mnuRestart.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent click) {
