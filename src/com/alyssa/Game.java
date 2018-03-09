@@ -13,6 +13,7 @@ public class Game extends JFrame implements ActionListener {
     private JMenuBar mnuMain;
     private JMenuItem   mnuRestart, mnuGameTitle, mnuStartQuiz, mnuExit;
 
+    JPanel pnlBar, pnlGame, pnlQuestion, pnlPicture, pnlAnswer;
 
     private Font fontToken = new Font("Arial", Font.BOLD, 70);
     private Font fontRadio = new Font("Arial", Font.BOLD, 25);
@@ -35,7 +36,7 @@ public class Game extends JFrame implements ActionListener {
         window.setLayout(new BorderLayout());
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
+        //start menu initialization
         mnuMain.add(mnuGameTitle);
         mnuGameTitle.setEnabled(false);
         mnuGameTitle.setFont(fontMenu);
@@ -45,11 +46,29 @@ public class Game extends JFrame implements ActionListener {
         mnuRestart.setFont(fontMenu);
         mnuMain.add(mnuExit);
         mnuExit.setFont(fontMenu);
-
         // adding Action Listener to all the Buttons and Menu Items
         mnuRestart.addActionListener(this);
         mnuExit.addActionListener(this);
         mnuRestart.addActionListener(this);
+
+        pnlBar.add(mnuMain);
+        //end menu initialization;
+
+        pnlBar = new JPanel();
+        pnlGame = new JPanel();
+        pnlQuestion = new JPanel();
+        pnlPicture = new JPanel();
+        pnlAnswer = new JPanel();
+
+        //create each panel
+
+        pnlGame.add(pnlQuestion);
+        pnlGame.add(pnlPicture);
+        pnlGame.add(pnlAnswer);
+
+        window.add(pnlBar, BorderLayout.NORTH);
+        window.add(pnlGame, BorderLayout.CENTER);
+        window.setVisible(true);
     }
 
     public void actionPerformed(ActionEvent click) {
