@@ -1,4 +1,4 @@
-package com.alyssa;
+ 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -20,7 +20,7 @@ public class Game extends JFrame implements ActionListener {
     public void init() {
         inGame = false;
 
-        window = new JFrame("Your Mom's Tic Tac Toe Game");
+        window = new JFrame("|||||||||||||||||||REVENGERS REUNITE|||||||||||||||||||");
 
         mnuMain = new JMenuBar();
         mnuClearGame = new JMenuItem("  Clear Game");
