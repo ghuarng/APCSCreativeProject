@@ -20,7 +20,11 @@ public class Game extends JFrame implements ActionListener {
     public void init() {
         inGame = false;
 
+<<<<<<< HEAD
         window = new JFrame("REVENGERS QUIZ");
+=======
+        window = new JFrame("|||||||||||||||||||REVENGERS REUNITE|||||||||||||||||||");
+>>>>>>> a327d01e0a0b29096723f5fe8d46ee7194bcb1e6
 
         mnuMain = new JMenuBar();
         mnuRestart = new JMenuItem("  TRY AGAIN");
