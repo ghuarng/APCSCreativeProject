@@ -5,10 +5,34 @@ import javax.swing.*;
 import javax.swing.plaf.metal.MetalButtonUI;
 
 public class Game extends JFrame implements ActionListener {
+    public boolean inGame;
+    final int X = 600, Y = 1024;
 
+    private JFrame window;
+    private JMenuBar mnuMain;
+    private JMenuItem   mnuRestart, mnuGameTitle, mnuStartQuiz, mnuExit;
+
+
+    private Font fontToken = new Font("Arial", Font.BOLD, 70);
+    private Font fontRadio = new Font("Arial", Font.BOLD, 25);
+    private Font fontMenu = new Font("Arial", Font.BOLD, 18);
 
     public void init() {
+        inGame = false;
 
+        window = new JFrame("REVENGERS QUIZ");
+
+        mnuMain = new JMenuBar();
+        mnuRestart = new JMenuItem("  TRY AGAIN");
+        mnuGameTitle = new JMenuItem("QUIZ  ");
+        mnuStartQuiz = new JMenuItem(" START QUIZ");
+        mnuExit = new JMenuItem("    GIVE UP");
+
+        window.setSize(X, Y);
+        window.setLocation(300, 180);
+        window.setResizable(true);
+        window.setLayout(new BorderLayout());
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void actionPerformed(ActionEvent click) {
