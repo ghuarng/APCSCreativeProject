@@ -1,4 +1,4 @@
- 
+package com.alyssa;
 
 public class Question {
     int qNum;
@@ -8,6 +8,6 @@ public class Question {
         
     }
     public boolean checkCorrect(int response){
-        
+        return true;
     }
 }
