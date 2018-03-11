@@ -1,4 +1,5 @@
- 
+package com.alyssa;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,11 +11,13 @@ public class Game extends JFrame implements ActionListener {
 
     private JFrame window;
     private JMenuBar mnuMain;
-    private JMenuItem   mnuClearGame, mnuGameTitle, mnuStartGame, mnuExit;
+    private JLabel mainTitle1, mainTitle2, mainTitle3, mainTitle4;
+    private JMenuItem   mnuRestart, mnuGameTitle, mnuStartQuiz, mnuExit;
 
+    JPanel pnlBar, pnlGame, pnlTitle, pnlTitlePicture, pnlTitlePage, pnlQuestion, pnlPicture, pnlAnswer;
 
     private Font fontToken = new Font("Arial", Font.BOLD, 70);
-    private Font fontRadio = new Font("Arial", Font.BOLD, 25);
+    private Font fontTitle = new Font("Impact", Font.BOLD, 100);
     private Font fontMenu = new Font("Arial", Font.BOLD, 18);
 
     public void init() {
@@ -23,10 +26,19 @@ public class Game extends JFrame implements ActionListener {
         window = new JFrame("|||||||||||||||||||REVENGERS REUNITE|||||||||||||||||||");
 
         mnuMain = new JMenuBar();
-        mnuClearGame = new JMenuItem("  Clear Game");
-        mnuGameTitle = new JMenuItem("Tic Tac Toe  ");
-        mnuStartGame = new JMenuItem(" Start Game");
-        mnuExit = new JMenuItem("    Quit");
+        mnuRestart = new JMenuItem("  TRY AGAIN");
+        mnuGameTitle = new JMenuItem("QUIZ  ");
+        mnuStartQuiz = new JMenuItem(" START QUIZ");
+        mnuExit = new JMenuItem("    GIVE UP");
+
+        pnlBar = new JPanel();
+        pnlGame = new JPanel();
+        pnlTitlePage = new JPanel();
+        pnlQuestion = new JPanel();
+        pnlPicture = new JPanel();
+        pnlAnswer = new JPanel();
+        pnlTitle = new JPanel();
+        pnlTitlePicture = new JPanel();
 
         window.setSize(X, Y);
         window.setLocation(300, 180);
@@ -34,40 +46,88 @@ public class Game extends JFrame implements ActionListener {
         window.setLayout(new BorderLayout());
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //start menu initialization
+        mnuMain.add(mnuGameTitle);
+        mnuGameTitle.setEnabled(false);
+        mnuGameTitle.setFont(fontMenu);
+        mnuMain.add(mnuRestart);
+        mnuRestart.setFont(fontMenu);
+        mnuMain.add(mnuStartQuiz);
+        mnuStartQuiz.setFont(fontMenu);
+        mnuMain.add(mnuExit);
+        mnuExit.setFont(fontMenu);
+        // adding Action Listener to all the Buttons and Menu Items
+        mnuRestart.addActionListener(this);
+        mnuExit.addActionListener(this);
+        mnuRestart.addActionListener(this);
+        //adding menu to panel
+        pnlBar.add(mnuMain);
+        pnlBar.setBackground(new Color(75, 255, 0));
+        //end menu initialization;
 
+        //title page
+        pnlTitlePage.setLayout(new FlowLayout(FlowLayout.CENTER));
+        pnlTitlePage.setBackground(new Color(69, 61, 0));
+        mainTitle1 = new JLabel("wElCOmE");
+        mainTitle1.setFont(fontTitle);
+        pnlTitle.add(mainTitle1, BorderLayout.NORTH);
+        mainTitle2 = new JLabel("tO ThE");
+        mainTitle2.setFont(fontTitle);
+        pnlTitle.add(mainTitle2, BorderLayout.CENTER);
+        mainTitle3 = new JLabel("rEveNgErS");
+        mainTitle3.setFont(fontTitle);
+        pnlTitle.add(mainTitle3, BorderLayout.CENTER);
+        mainTitle4 = new JLabel("QuIz");
+        mainTitle4.setFont(fontTitle);
+        pnlTitle.add(mainTitle4, BorderLayout.SOUTH);
+        pnlTitlePage.add(pnlTitle);
+        //end title page
+
+        pnlGame.setLayout(new GridLayout(X, Y - 180, 2, 2));
+        pnlGame.setBackground(new Color(255, 42, 0)); //background behind buttons
+
+        showTitlePage();
+
+        window.add(pnlBar, BorderLayout.NORTH);
+        window.add(pnlGame, BorderLayout.CENTER);
+        window.setVisible(true);
     }
 
     public void actionPerformed(ActionEvent click) {
         // get the mouse click from the user
         Object source = click.getSource();
 
-//        if (source == mnuClearGame) {
-//            clearGame();
-//        } else if (source == mnuExit) {
+        if (source == mnuRestart) {
+            showGame();
+        } else if (source == mnuExit) {
 //            exitGame();
-//        } else if (source == mnuStartGame) {
-//            configureGame();
-//        } else if (source == startGameButton) {
-//            startGame();
-//        } else if (click.getActionCommand() != "") {
-//            String cmd = click.getActionCommand();
-//            int player = cmd.charAt(1) - '0'; // convert player number to integer
-//            String action = cmd.substring(2);
-//            if (action.equals(dot)) {
-//                if (player == 1) {
-//                    p2Tri.setSelected(true);
-//                } else {
-//                    p1Tri.setSelected(true);
-//                }
-//            } else if (action.equals(tri)) {
-//                if (player == 1) {
-//                    p2Dot.setSelected(true);
-//                } else {
-//                    p1Dot.setSelected(true);
-//                }
-//            }
-//        } else {
-//            checkBoardClick(source);
-//        }
+        } else if (source == mnuStartQuiz) {
+            showGame();
+        } /*else if (source == startGameButton) {
+            startGame();*/
+    }
+
+    //methods for what the game will look like
+    public void showTitlePage() {
+        pnlGame.setLayout(new BorderLayout());
+        pnlGame.add(pnlTitlePage, BorderLayout.CENTER);
+        pnlTitlePage.requestFocus();
+    }
+    public void showGame() {
+        pnlGame.remove(pnlTitlePage);
+        pnlGame.setLayout(new BorderLayout());
+        pnlGame.add(pnlQuestion, BorderLayout.NORTH);
+        pnlGame.add(pnlPicture, BorderLayout.CENTER);
+        pnlGame.add(pnlAnswer, BorderLayout.SOUTH);
+        pnlQuestion.requestFocus();
+        pnlPicture.requestFocus();
+        pnlAnswer.requestFocus();
+    }
+    private void goToTitle() {
+        pnlGame.remove(pnlQuestion);
+        pnlGame.remove(pnlPicture);
+        pnlGame.remove(pnlAnswer);
+        showTitlePage();
+        //enableBoard(false);
     }
 }

@@ -1,4 +1,4 @@
- 
+package com.alyssa;
 
 public class Question {
     int qNum;
@@ -12,5 +12,7 @@ public class Question {
     //method gets input from button
     //if input == key[qNum], correct++. qNum++.
     //if !=, disable button (?)
-    
+    public boolean checkCorrect(int response){
+        return true;
+    }
 }
