@@ -67,7 +67,7 @@ public class Game extends JFrame implements ActionListener {
 
         //title page
         pnlTitlePage.setLayout(new GridLayout(X, Y - 180, 2, 2));
-        pnlTitlePage.setBackground(new Color(69, 26, 0));
+        pnlTitlePage.setBackground(new Color(69, 0, 54));
         mainTitle1 = new JLabel("wElCOmE");
         mainTitle1.setFont(fontTitle);
         pnlTitle.add(mainTitle1);
@@ -88,7 +88,7 @@ public class Game extends JFrame implements ActionListener {
         //end title page
 
         pnlGame.setLayout(new GridLayout(X, Y - 180, 2, 2));
-        pnlGame.setBackground(new Color(255, 42, 0)); //background behind buttons
+        pnlGame.setBackground(new Color(0, 252, 255)); //background behind buttons
 
         goToTitle();
 
