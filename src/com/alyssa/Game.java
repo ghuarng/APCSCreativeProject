@@ -88,7 +88,7 @@ public class Game extends JFrame implements ActionListener {
         //end title page
 
         pnlGame.setLayout(new GridLayout(X, Y - 180, 2, 2));
-        pnlGame.setBackground(new Color(146, 142, 0)); //background behind buttons
+        pnlGame.setBackground(new Color(103, 146, 108)); //background behind buttons
 
         goToTitle();
 

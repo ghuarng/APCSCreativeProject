@@ -2,3 +2,5 @@ src/production
 *.bluej
 *.xml
 *.iml
+.idea
+.DS_Store
