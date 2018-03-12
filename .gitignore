@@ -1,1 +1,4 @@
 src/production
+*.bluej
+*.xml
+*.iml
