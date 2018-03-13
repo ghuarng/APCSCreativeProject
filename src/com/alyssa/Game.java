@@ -1,4 +1,4 @@
-package com.alyssa;
+ 
 
 import java.awt.*;
 import java.awt.event.*;
@@ -7,7 +7,7 @@ import javax.swing.plaf.metal.MetalButtonUI;
 
 public class Game extends JFrame implements ActionListener {
     public boolean inGame;
-    final int X = 600, Y = 1024;
+    final int X = 600, Y = 750;
 
     private JFrame window;
     private JMenuBar mnuMain;
